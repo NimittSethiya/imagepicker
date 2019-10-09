@@ -67,7 +67,16 @@ public class MainActivity extends AppCompatActivity {
                 if(data.getData()!=null){
 
                     mImageUri=data.getData();
-
+                    if(mArrayUri.size()==0 || PICK_IMAGES==0 && p==-1)
+                    {
+                        mArrayUri.add(mImageUri);
+                        pos++;
+                    }
+                    else 
+                    {
+                        mArrayUri.set(p,mImageUri);
+                        p=-1;
+                    }
                 }else{
                     if(data.getClipData()!=null){
                         ClipData mClipData=data.getClipData();
